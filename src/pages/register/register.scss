@@ -1,0 +1,26 @@
+page-register {
+  margin-top: 30vh;
+  margin-bottom: 5vh;
+}
+
+.center {
+  text-align: center;
+}
+
+body > ion-app > ng-component > ion-nav > page-register > ion-grid > ion-row > ion-col > ion-fab {
+  margin-top: 3vh !important;
+}
+
+fab-content-margin {
+  margin-top: 4vh;
+}
+
+#terugbutton
+{
+background-color: navy;
+}
+
+.text-alignment-center {
+  text-align: center !important;
+}
+

@@ -1,0 +1,21 @@
+<ion-grid>
+    <ion-row>
+        <ion-col col-12 col-sm>
+            <ion-title class="center">Log-in</ion-title>
+            <ion-item>
+                <ion-label floating>Username</ion-label>
+                <ion-input type="text" [(ngModel)]="username"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Password</ion-label>
+                <ion-input type="password" [(ngModel)]="password"></ion-input>
+            </ion-item>
+            <br>
+            <button ion-button (click)="signIn()" color="secondary" full round>Inloggen</button>
+            <br>
+            <button ion-button (click)="goRegister()" color="light" full round>Registreer</button>
+
+
+</ion-col>
+    </ion-row>
+</ion-grid>
