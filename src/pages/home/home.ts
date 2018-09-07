@@ -3,7 +3,8 @@ import {NavController, AlertController, LoadingController} from 'ionic-angular';
 import {RegisterPage} from "../register/register";
 import {HttpClient, HttpHeaders, HttpRequest} from "@angular/common/http";
 import 'rxjs/add/operator/map';
-import {TabsPage} from "../tabs/tabs";
+import {FeedPage} from "../feed/feed";
+import {FavorietenPage} from "../favorieten/favorieten";
 
 
 @Component({
@@ -15,6 +16,10 @@ export class HomePage {
 
     username:string;
     password:string;
+
+    FavorietenPage = FavorietenPage;
+    FeedPage = FeedPage;
+
 
     data:string;
 
@@ -103,7 +108,7 @@ export class HomePage {
                         });
 
                             alert.present();
-                            this.navCtrl.push(TabsPage);
+                            this.navCtrl.setRoot(FeedPage);
 
                         }else
 

@@ -45,8 +45,10 @@ $username = stripslashes($username);
 
 $password = stripslashes($password);
 
+$hashedpw = password_hash($password, PASSWORD_DEFAULT);
+
 $sql = "INSERT INTO users (username, password, email)
-VALUES ('$username', '$password', '$emailadd')";
+VALUES ('$username', '$hashedpw', '$emailadd')";
 
 if ($con->query($sql) === TRUE) {
 

@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS')
 
       $password = stripslashes($password);
 
-    $sql = "SELECT id FROM users WHERE username = '$username' and password = '$password'";
+    $sql = "SELECT * FROM users WHERE username = '$username'";
 
       $result = mysqli_query($con,$sql);
 
@@ -61,11 +61,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS')
       // If result matched myusername and mypassword, table row must be 1 row                    
 
       if($count >0) {
+          $hashedPasswordCheck = password_verify($password, $row["password"]);
+          if($hashedPasswordCheck == false)
+          {
+              $response= "Your email or password is invalid!";
+          }
+          elseif($hashedPasswordCheck == true)
+          {
+              $response= "Succesfully logged in!";
+          }
 
-     $response= "Succesfully logged in!";
-      }
-      else {
-    $response= "Your email or password is invalid!";
       }
 
  echo json_encode($response);

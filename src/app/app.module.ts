@@ -8,7 +8,8 @@ import {HomePage} from '../pages/home/home';
 import {RegisterPage} from "../pages/register/register";
 import { HttpClientModule } from '@angular/common/http';
 import {FavorietenPage} from "../pages/favorieten/favorieten";
-import {TabsPage} from "../pages/tabs/tabs";
+import {FeedPage} from "../pages/feed/feed";
+
 
 
 
@@ -19,7 +20,7 @@ import {TabsPage} from "../pages/tabs/tabs";
         HomePage,
         RegisterPage,
         FavorietenPage,
-        TabsPage,
+        FeedPage
 
     ],
     imports: [
@@ -33,7 +34,7 @@ import {TabsPage} from "../pages/tabs/tabs";
         HomePage,
         RegisterPage,
         FavorietenPage,
-        TabsPage,
+        FeedPage
     ],
     providers: [
         StatusBar,
