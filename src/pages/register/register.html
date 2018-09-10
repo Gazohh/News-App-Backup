@@ -1,27 +1,30 @@
-<ion-grid>
-    <ion-row>
-        <ion-col col-sm-12 col-sm>
-            <ion-title  class="center">Registreer</ion-title>
-            <ion-item>
-                <ion-label floating>Username</ion-label>
-                <ion-input type="text" [(ngModel)]="username"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label floating>E-mail</ion-label>
-              <ion-input type="email" [(ngModel)]="email"></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-label floating>Password</ion-label>
-                <ion-input type="password" [(ngModel)]="password"></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-label floating>Repeat password</ion-label>
-                <ion-input type="password" [(ngModel)]="repassword"></ion-input>
-            </ion-item>
-            <br>
-            <button class="text-center" ion-button (click)="Register()" color="secondary" full round>Aanmaken</button>
-          <br>
-            <button ion-button (click)="terug()" color="light" full round>Terug</button>
-        </ion-col>
-    </ion-row>
-</ion-grid>
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-title class="center">Registreer</ion-title>
+                <ion-item>
+                    <ion-label floating>Username</ion-label>
+                    <ion-input type="text" [(ngModel)]="username"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>E-mail</ion-label>
+                    <ion-input type="email" [(ngModel)]="email"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Password</ion-label>
+                    <ion-input type="password" [(ngModel)]="password"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Repeat password</ion-label>
+                    <ion-input type="password" [(ngModel)]="repassword"></ion-input>
+                </ion-item>
+                <br>
+                <button class="text-center" ion-button (click)="Register()" color="secondary" full round>Aanmaken
+                </button>
+                <br>
+                <button ion-button (click)="terug()" color="light" full round>Terug</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

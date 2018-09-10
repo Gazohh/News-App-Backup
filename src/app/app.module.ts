@@ -9,6 +9,7 @@ import {RegisterPage} from "../pages/register/register";
 import { HttpClientModule } from '@angular/common/http';
 import {FavorietenPage} from "../pages/favorieten/favorieten";
 import {FeedPage} from "../pages/feed/feed";
+import { RssProvider } from '../providers/rss/rss';
 
 
 
@@ -40,7 +41,8 @@ import {FeedPage} from "../pages/feed/feed";
         StatusBar,
         SplashScreen,
         HttpClientModule,
-        {provide: ErrorHandler, useClass: IonicErrorHandler}
+        {provide: ErrorHandler, useClass: IonicErrorHandler},
+    RssProvider
     ]
 
 })

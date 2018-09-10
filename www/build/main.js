@@ -7,8 +7,8 @@ webpackJsonp([2],{
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -43,12 +43,12 @@ var RegisterPage = /** @class */ (function () {
     RegisterPage.prototype.Register = function () {
         var _this = this;
         if (this.username == "" || this.password == "" || this.email == "" || this.repassword == "") {
-            var alert = this.alertCtrl.create({
+            var alert_1 = this.alertCtrl.create({
                 title: "",
                 message: "Niet alle velden zijn ingevuld!",
                 buttons: ['OK']
             });
-            alert.present();
+            alert_1.present();
         }
         else {
             var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["c" /* HttpHeaders */]();
@@ -64,26 +64,26 @@ var RegisterPage = /** @class */ (function () {
                 content: 'Aan het registreren..',
             });
             loader_1.present().then(function () {
-                _this.http.post('http://localhost/News-App/src/pages/register/register.php', data, options)
+                _this.http.post('http://gazoh.net/register.php', data, options)
                     .map(function (res) { return res; })
                     .subscribe(function (res) {
                     loader_1.dismiss();
                     if (res == "Registration successfull") {
-                        var alert = _this.alertCtrl.create({
+                        var alert_2 = _this.alertCtrl.create({
                             title: "Registreren geslaagd",
                             subTitle: "U kunt nu gaan inloggen",
                             buttons: ['OK']
                         });
-                        alert.present();
+                        alert_2.present();
                         _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */]);
                     }
                     else {
-                        var alert = _this.alertCtrl.create({
+                        var alert_3 = _this.alertCtrl.create({
                             title: "Mislukt",
                             subTitle: "Er is iets mis gegaan tijdens het registeren probeert u het opnieuw.",
                             buttons: ['OK']
                         });
-                        alert.present();
+                        alert_3.present();
                     }
                 });
             });
@@ -91,12 +91,11 @@ var RegisterPage = /** @class */ (function () {
     };
     RegisterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\register\register.html"*/'<ion-grid>\n\n    <ion-row>\n\n        <ion-col col-sm-12 col-sm>\n\n            <ion-title  class="center">Registreer</ion-title>\n\n            <ion-item>\n\n                <ion-label floating>Username</ion-label>\n\n                <ion-input type="text" [(ngModel)]="username"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-label floating>E-mail</ion-label>\n\n              <ion-input type="email" [(ngModel)]="email"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label floating>Password</ion-label>\n\n                <ion-input type="password" [(ngModel)]="password"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label floating>Repeat password</ion-label>\n\n                <ion-input type="password" [(ngModel)]="repassword"></ion-input>\n\n            </ion-item>\n\n            <br>\n\n            <button class="text-center" ion-button (click)="Register()" color="secondary" full round>Aanmaken</button>\n\n          <br>\n\n            <button ion-button (click)="terug()" color="light" full round>Terug</button>\n\n        </ion-col>\n\n    </ion-row>\n\n</ion-grid>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\register\register.html"*/,
+            selector: 'page-register',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\register\register.html"*/'<ion-content>\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col>\n\n                <ion-title class="center">Registreer</ion-title>\n\n                <ion-item>\n\n                    <ion-label floating>Username</ion-label>\n\n                    <ion-input type="text" [(ngModel)]="username"></ion-input>\n\n                </ion-item>\n\n                <ion-item>\n\n                    <ion-label floating>E-mail</ion-label>\n\n                    <ion-input type="email" [(ngModel)]="email"></ion-input>\n\n                </ion-item>\n\n                <ion-item>\n\n                    <ion-label floating>Password</ion-label>\n\n                    <ion-input type="password" [(ngModel)]="password"></ion-input>\n\n                </ion-item>\n\n                <ion-item>\n\n                    <ion-label floating>Repeat password</ion-label>\n\n                    <ion-input type="password" [(ngModel)]="repassword"></ion-input>\n\n                </ion-item>\n\n                <br>\n\n                <button class="text-center" ion-button (click)="Register()" color="secondary" full round>Aanmaken\n\n                </button>\n\n                <br>\n\n                <button ion-button (click)="terug()" color="light" full round>Terug</button>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\register\register.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */]])
     ], RegisterPage);
     return RegisterPage;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=register.js.map
@@ -125,7 +124,7 @@ webpackEmptyAsyncContext.id = 116;
 
 var map = {
 	"../pages/feed/feed.module": [
-		278,
+		280,
 		1
 	],
 	"../pages/register/register.module": [
@@ -149,13 +148,61 @@ module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 202:
+/***/ 159:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RssProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/*
+  Generated class for the RssProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var RssProvider = /** @class */ (function () {
+    function RssProvider(http) {
+        this.http = http;
+        console.log('Hello RssProvider Provider');
+    }
+    RssProvider.prototype.getRSS = function () {
+        var RSS_URL = "http://gazoh.net/rss.xml";
+        var API = "wtxfwzfeaqeianrqzzzqfpirznx0hern2hpa2xsz";
+        var count = 50;
+        var API_URL = "https://api.rss2json.com/v1/api.json";
+        var response = this.http.post(API_URL, {}, { params: { 'rss_url': RSS_URL, 'api_key': API, 'count': count } });
+        return response;
+    };
+    RssProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+    ], RssProvider);
+    return RssProvider;
+}());
+
+//# sourceMappingURL=rss.js.map
+
+/***/ }),
+
+/***/ 203:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(224);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -163,7 +210,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 223:
+/***/ 224:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -171,20 +218,22 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(277);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_register_register__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_common_http__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_common_http__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_favorieten_favorieten__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_feed_feed__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_feed_feed__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_rss_rss__ = __webpack_require__(159);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -212,8 +261,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/feed/feed.module#FeedPageModule', name: 'FeedPage', segment: 'feed', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/feed/feed.module#FeedPageModule', name: 'FeedPage', segment: 'feed', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_8__angular_common_http__["b" /* HttpClientModule */],
@@ -230,7 +279,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
                 __WEBPACK_IMPORTED_MODULE_8__angular_common_http__["b" /* HttpClientModule */],
-                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] }
+                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_11__providers_rss_rss__["a" /* RssProvider */]
             ]
         })
     ], AppModule);
@@ -241,18 +291,18 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 277:
+/***/ 278:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_favorieten_favorieten__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_feed_feed__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_feed_feed__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(80);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -305,13 +355,14 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 50:
+/***/ 51:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FeedPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_rss_rss__ = __webpack_require__(159);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -323,6 +374,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 /**
  * Generated class for the FeedPage page.
  *
@@ -330,18 +382,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var FeedPage = /** @class */ (function () {
-    function FeedPage(navCtrl, navParams) {
+    function FeedPage(navCtrl, navParams, rssProvider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.rssProvider = rssProvider;
+        this.rssDataArray = [];
     }
     FeedPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad FeedPage');
+        this.Get_RSS_Data();
+    };
+    FeedPage.prototype.Get_RSS_Data = function () {
+        var _this = this;
+        this.rssProvider.getRSS().subscribe(function (data) {
+            _this.rssDataArray = data;
+            console.log(data);
+        });
     };
     FeedPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-feed',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\feed\feed.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Home</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\feed\feed.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_rss_rss__["a" /* RssProvider */]])
     ], FeedPage);
     return FeedPage;
 }());
@@ -350,7 +412,7 @@ var FeedPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 79:
+/***/ 80:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -358,10 +420,10 @@ var FeedPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register_register__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__feed_feed__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__feed_feed__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__favorieten_favorieten__ = __webpack_require__(81);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -401,12 +463,12 @@ var HomePage = /** @class */ (function () {
         //// check to confirm the username and password fields are filled
         var _this = this;
         if (this.username == null || this.password == null) {
-            var alert = this.alertCtrl.create({
+            var alert_1 = this.alertCtrl.create({
                 title: "",
                 message: "Gebruikersnaam of wachtwoord is niet ingevuld!",
                 buttons: ['OK']
             });
-            alert.present();
+            alert_1.present();
         }
         else {
             var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["c" /* HttpHeaders */]();
@@ -421,26 +483,26 @@ var HomePage = /** @class */ (function () {
                 content: 'Aan het inloggen...',
             });
             loader_1.present().then(function () {
-                _this.http.post('http://localhost/News-App/src/pages/register/login.php', data_1, options_1)
+                _this.http.post('http://www.gazoh.net/login.php', data_1, options_1)
                     .subscribe(function (res) {
                     console.log(res);
                     loader_1.dismiss();
                     if (res == "Succesfully logged in!") {
-                        var alert = _this.alertCtrl.create({
+                        var alert_2 = _this.alertCtrl.create({
                             title: "Geslaagd",
                             message: "U bent ingelogd!",
                             buttons: ['OK']
                         });
-                        alert.present();
+                        alert_2.present();
                         _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__feed_feed__["a" /* FeedPage */]);
                     }
                     else {
-                        var alert = _this.alertCtrl.create({
+                        var alert_3 = _this.alertCtrl.create({
                             title: "Mislukt",
                             subTitle: "Uw gegevens zijn onjuist, probeer het nogmaals.",
                             buttons: ['OK']
                         });
-                        alert.present();
+                        alert_3.present();
                     }
                 });
             });
@@ -448,12 +510,11 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\home\home.html"*/'<ion-grid>\n\n    <ion-row>\n\n        <ion-col col-12 col-sm>\n\n            <ion-title class="center">Log-in</ion-title>\n\n            <ion-item>\n\n                <ion-label floating>Username</ion-label>\n\n                <ion-input type="text" [(ngModel)]="username"></ion-input>\n\n            </ion-item>\n\n            <ion-item>\n\n                <ion-label floating>Password</ion-label>\n\n                <ion-input type="password" [(ngModel)]="password"></ion-input>\n\n            </ion-item>\n\n            <br>\n\n            <button ion-button (click)="signIn()" color="secondary" full round>Inloggen</button>\n\n            <br>\n\n            <button ion-button (click)="goRegister()" color="light" full round>Registreer</button>\n\n\n\n\n\n</ion-col>\n\n    </ion-row>\n\n</ion-grid>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"c:\xampp\htdocs\News-App\src\pages\home\home.html"*/'<ion-content>\n\n    <ion-grid>\n\n        <ion-row>\n\n            <ion-col>\n\n                <ion-title class="center">Log-in</ion-title>\n\n                <ion-item>\n\n                    <ion-label floating>Username</ion-label>\n\n                    <ion-input type="text" [(ngModel)]="username"></ion-input>\n\n                </ion-item>\n\n                <ion-item>\n\n                    <ion-label floating>Password</ion-label>\n\n                    <ion-input type="password" [(ngModel)]="password"></ion-input>\n\n                </ion-item>\n\n                <br>\n\n                <button ion-button (click)="signIn()" color="secondary" full round>Inloggen</button>\n\n                <br>\n\n                <button ion-button (click)="goRegister()" color="light" full round>Registreer</button>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"c:\xampp\htdocs\News-App\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
     ], HomePage);
     return HomePage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -502,5 +563,5 @@ var FavorietenPage = /** @class */ (function () {
 
 /***/ })
 
-},[202]);
+},[203]);
 //# sourceMappingURL=main.js.map

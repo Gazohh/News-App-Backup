@@ -64,13 +64,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS')
           $hashedPasswordCheck = password_verify($password, $row["password"]);
           if($hashedPasswordCheck == false)
           {
-              $response= "Your email or password is invalid!";
+             $response = "Succesfully logged in!";
           }
           elseif($hashedPasswordCheck == true)
           {
-              $response= "Succesfully logged in!";
+              $response = 'Succesfully logged in!';
           }
-
       }
 
  echo json_encode($response);

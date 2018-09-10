@@ -1,12 +1,12 @@
 <?php
 
-define("HOST","localhost");
+define("HOST","109.201.137.134");
 
-define("USER","root");
+define("USER","gazohonlin_root");
 
-define("PASS","");
+define("PASS","bQ4YR4c5ro");
 
-define("DB","ionicapp");
+define("DB","gazohonlin_ionic");
 
 $con = mysqli_connect(HOST,USER,PASS,DB);
 

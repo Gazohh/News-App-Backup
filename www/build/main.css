@@ -25686,18 +25686,24 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
-page-home ion-title * {
-  margin-top: 30vh;
-  margin-bottom: 5vh;
-}
-
-page-home .center {
+.center {
   text-align: center;
 }
 
-page-register {
-  margin-top: 30vh;
-  margin-bottom: 5vh;
+ion-grid {
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+ion-grid {
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .center {

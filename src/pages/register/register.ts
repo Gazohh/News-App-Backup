@@ -68,13 +68,13 @@ export class RegisterPage {
 
             loader.present().then(() => {
 
-                this.http.post('http://localhost/News-App/src/pages/register/register.php', data, options)
+                this.http.post('http://gazoh.net/register.php', data, options)
 
                     .map(res => res)
 
                     .subscribe(res => {
 
-                        loader.dismiss()
+                        loader.dismiss();
 
                         if (res == "Registration successfull") {
 
