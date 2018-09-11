@@ -5,6 +5,7 @@ import {HttpClient, HttpHeaders, HttpRequest} from "@angular/common/http";
 import 'rxjs/add/operator/map';
 import {FeedPage} from "../feed/feed";
 import {FavorietenPage} from "../favorieten/favorieten";
+import {ToastController} from 'ionic-angular';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class HomePage {
 
     data:string;
 
-    constructor(public navCtrl: NavController, private alertCtrl: AlertController, public loading: LoadingController, public http: HttpClient) {
+    constructor(public navCtrl: NavController, private alertCtrl: AlertController, public loading: LoadingController, public http: HttpClient, private toastCtrl: ToastController) {
 
     }
 
@@ -97,34 +98,29 @@ export class HomePage {
 
                         if(res=="Succesfully logged in!"){
 
-                            let alert = this.alertCtrl.create({
-
-                                title:"Geslaagd",
-
+                            let toast = this.toastCtrl.create({
                             message: "U bent ingelogd!",
-
-                                buttons: ['OK']
-
+                                duration: 2500,
+                                position: "top"
                         });
 
-                            alert.present();
+                            toast.present();
                             this.navCtrl.setRoot(FeedPage);
 
                         }else
 
                         {
 
-                            let alert = this.alertCtrl.create({
+                            let toast = this.toastCtrl.create({
 
-                                title:"Mislukt",
-
-                            subTitle:"Uw gegevens zijn onjuist, probeer het nogmaals.",
-
-                            buttons: ['OK']
+                            message:"Uw gegevens zijn onjuist, probeer het nogmaals.",
+                                showCloseButton: true,
+                                closeButtonText: "OK",
+                                position: "top"
 
                         });
 
-                            alert.present();
+                            toast.present();
 
                         }
 

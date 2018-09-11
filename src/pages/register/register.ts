@@ -11,6 +11,8 @@ import 'rxjs/add/operator/map';
     selector: 'page-register',
     templateUrl: 'register.html',
 })
+
+
 export class RegisterPage {
 
     // Variablen
@@ -20,7 +22,12 @@ export class RegisterPage {
     email: String;
 
     // Construtor hiermee roep je alles aan
-    constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, private http: HttpClient, public loading: LoadingController, private toastCtrl: ToastController) {
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                public alertCtrl: AlertController,
+                private http: HttpClient,
+                public loading: LoadingController,
+                private toastCtrl: ToastController) {
     }
 
     // Push terug naar home button
@@ -29,7 +36,7 @@ export class RegisterPage {
     }
 
     Register() {
-        if (this.username == "" || this.password == "" || this.email == "" || this.repassword == "") {
+        if (this.username == null || this.password == null || this.email == null || this.repassword == null) {
             let alert = this.alertCtrl.create(
                 {
                     title: "",

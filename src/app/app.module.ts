@@ -15,6 +15,7 @@ import { RssProvider } from '../providers/rss/rss';
 
 
 
+
 @NgModule({
     declarations: [
         MyApp,
@@ -27,7 +28,7 @@ import { RssProvider } from '../providers/rss/rss';
     imports: [
         BrowserModule,
         IonicModule.forRoot(MyApp),
-        HttpClientModule,
+        HttpClientModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
