@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {RssProvider} from "../../providers/rss/rss";
-
+import { MenuController } from "ionic-angular";
 /**
  * Generated class for the FeedPage page.
  *
@@ -18,13 +18,19 @@ export class FeedPage {
 
     rssDataArray: any = [];
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public rssProvider: RssProvider) {
+    constructor(
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        public rssProvider: RssProvider,
+        public menuCtrl: MenuController) {
     }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad FeedPage');
         this.Get_RSS_Data();
+        this.menuCtrl.enable (true, 'myMenu');
     }
+
 
     Get_RSS_Data() {
         this.rssProvider.getRSS().subscribe(data => {

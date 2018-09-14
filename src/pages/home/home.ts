@@ -6,7 +6,8 @@ import 'rxjs/add/operator/map';
 import {FeedPage} from "../feed/feed";
 import {FavorietenPage} from "../favorieten/favorieten";
 import {ToastController} from 'ionic-angular';
-
+import {Keyboard} from '@ionic-native/keyboard';
+import { MenuController } from "ionic-angular";
 
 @Component({
     selector: 'page-home',
@@ -24,12 +25,22 @@ export class HomePage {
 
     data:string;
 
-    constructor(public navCtrl: NavController, private alertCtrl: AlertController, public loading: LoadingController, public http: HttpClient, private toastCtrl: ToastController) {
+    constructor(
+                public navCtrl: NavController,
+                private alertCtrl: AlertController,
+                public loading: LoadingController,
+                public http: HttpClient,
+                private toastCtrl: ToastController,
+                private keyboard: Keyboard,
+                public menuCtrl: MenuController) {
 
+        this.menuCtrl.enable(false, 'myMenu');
+        keyboard.disableScroll(true);
     }
 
     // Console log die username en password terug geeft.
     login() {
+
         console.log("Username: " + this.username);
 
         console.log("Password: " + this.password);
@@ -46,18 +57,13 @@ export class HomePage {
 
         if(this.username == null || this.password  == null ){
 
-            let alert = this.alertCtrl.create({
+            let toast = this.toastCtrl.create({
+                message: 'Niet alle velden zijn ingevuld!',
+                duration: 3000,
+                position: 'top'
+            });
 
-                title:"",
-
-            message:"Gebruikersnaam of wachtwoord is niet ingevuld!",
-
-            buttons: ['OK']
-
-        });
-
-            alert.present();
-
+            toast.present();
         }
 
     else

@@ -1,12 +1,18 @@
 <ion-content>
     <ion-grid>
         <ion-row>
-            <ion-col>
-                <ion-title class="center">Registreer</ion-title>
+            <ion-col class="col">
+                <div class="loginFoto">
+                    <div class="form-title"
+                         style="background-image: url(http://gazoh.net/images/axa-studios-media-agency-arnhem-maibanner.jpg)">
+                        <ion-title class="form-title1" style="color: #ffffff;">Registreer</ion-title>
+                    </div>
+                </div><div class="geheel2">
                 <ion-item>
+
                     <ion-label floating>Username</ion-label>
                     <ion-input type="text" [(ngModel)]="username"></ion-input>
-                </ion-item>
+                     </ion-item>
                 <ion-item>
                     <ion-label floating>E-mail</ion-label>
                     <ion-input type="email" [(ngModel)]="email"></ion-input>
@@ -18,13 +24,15 @@
                 <ion-item>
                     <ion-label floating>Repeat password</ion-label>
                     <ion-input type="password" [(ngModel)]="repassword"></ion-input>
-                </ion-item>
-                <br>
-                <button class="text-center" ion-button (click)="Register()" color="secondary" full round>Aanmaken
+            </ion-item>
+                <br><div buttonClass style="width: 50%; margin-left: 20px;">
+                <button class="button3" ion-button (click)="Register()" color="secondary" full round>Aanmaken
                 </button>
                 <br>
-                <button ion-button (click)="terug()" color="light" full round>Terug</button>
-            </ion-col>
+                </div><a (click)="terug()" class="txt3">
+                Heb je al een account? Meld je nu aan!
+            </a>
+           <br> </div> </ion-col>
         </ion-row>
     </ion-grid>
 </ion-content>

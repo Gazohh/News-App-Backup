@@ -6,16 +6,18 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {FavorietenPage} from "../pages/favorieten/favorieten";
 import {FeedPage} from "../pages/feed/feed";
 import {HomePage} from "../pages/home/home";
+import {Keyboard} from "@ionic-native/keyboard";
 
 
 @Component({
     templateUrl: 'app.html',
+    providers: [Keyboard]
 })
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
     rootPage: any = HomePage;
 
-    pages: Array<{title: string, component: any}>;
+    pages: Array<{ title: string, component: any }>;
 
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
         platform.ready().then(() => {
@@ -27,8 +29,8 @@ export class MyApp {
 
         // used for an example of ngFor and navigation
         this.pages = [
-            { title: 'Home', component: FeedPage },
-            { title: 'Favorieten', component: FavorietenPage }
+            {title: 'Home', component: FeedPage},
+            {title: 'Favorieten', component: FavorietenPage}
         ];
     }
 

@@ -6,14 +6,10 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
 import {RegisterPage} from "../pages/register/register";
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import {FavorietenPage} from "../pages/favorieten/favorieten";
 import {FeedPage} from "../pages/feed/feed";
-import { RssProvider } from '../providers/rss/rss';
-
-
-
-
+import {RssProvider} from '../providers/rss/rss';
 
 
 @NgModule({
@@ -27,8 +23,11 @@ import { RssProvider } from '../providers/rss/rss';
     ],
     imports: [
         BrowserModule,
-        IonicModule.forRoot(MyApp),
-        HttpClientModule
+        HttpClientModule,
+        IonicModule.forRoot(MyApp, {
+            scrollAssist: false,
+            autoFocusAssist: false
+        })
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -43,7 +42,7 @@ import { RssProvider } from '../providers/rss/rss';
         SplashScreen,
         HttpClientModule,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RssProvider
+        RssProvider
     ]
 
 })

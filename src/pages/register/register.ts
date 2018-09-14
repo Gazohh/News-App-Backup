@@ -37,16 +37,13 @@ export class RegisterPage {
 
     Register() {
         if (this.username == null || this.password == null || this.email == null || this.repassword == null) {
-            let alert = this.alertCtrl.create(
-                {
-                    title: "",
+            let toast = this.toastCtrl.create({
+                message: 'Niet alle velden zijn ingevuld!',
+                duration: 3000,
+                position: 'top'
+            });
 
-                    message: "Niet alle velden zijn ingevuld!",
-
-                    buttons: ['OK']
-                }
-            )
-            alert.present();
+            toast.present();
         }
         else {
             var headers = new HttpHeaders();

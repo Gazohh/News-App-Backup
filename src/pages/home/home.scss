@@ -1,10 +1,110 @@
- .center {
-    text-align: center;
-  }
+.center {
+  text-align: center;
+}
 
-  ion-grid {
-    height: 100%;
-    justify-content: center;
-  }
+ion-grid {
+  height: 100%;
+  justify-content: center;
+}
 
+.form-title {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 70px 15px 74px 15px;
 
+}
+
+.form-title1 {
+  color: #ffffff !important;
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.form-title::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(58, 59, 59, 0.61);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+// Background color
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
+  background: #ebeeef;
+  padding: 10px;
+}
+
+// Login text
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div.loginFoto > div > ion-title > div {
+  color: white !important;
+}
+
+.txt1 {
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #999999;
+  float: right;
+  padding-right: 10px;
+}
+
+.txt2 {
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #999999;
+  float: left;
+  margin-left: 15px;
+  margin-top: 15px;
+
+}
+
+// foto axa
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div.loginFoto > div {
+  border-radius: 10px;
+}
+
+.geheel {
+  background-color: white;
+  height: 70%;
+  border-radius: 10px;
+}
+
+.button1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 160px;
+  height: 50px;
+  background-color: #57b846;
+  border-radius: 25px;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+  transition: all 0.4s;
+  margin-left: 15px;
+  margin-top: 30px;
+}
+
+// scroll content
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content {
+  background-color: #ebeeef;
+}
