@@ -34,21 +34,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS')
 
         $request = json_decode($data);
 
-        $username = $request->username;
+        $email = $request->email;
 
         $password = $request->password;
 
     }
 
-      $username= mysqli_real_escape_string($con,$username);
+      $email= mysqli_real_escape_string($con, $email);
 
       $password = mysqli_real_escape_string($con,$password);
 
-       $username = stripslashes($username);
+      $email = stripslashes($email);
 
       $password = stripslashes($password);
 
-    $sql = "SELECT * FROM users WHERE username = '$username'";
+    $sql = "SELECT * FROM users WHERE email = '$email'";
 
       $result = mysqli_query($con,$sql);
 
@@ -56,15 +56,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS')
 
       $count = mysqli_num_rows($result);
 
-     
-
-      // If result matched myusername and mypassword, table row must be 1 row                    
-
       if($count >0) {
           $hashedPasswordCheck = password_verify($password, $row["password"]);
           if($hashedPasswordCheck == false)
           {
-             $response = "Succesfully logged in!";
+             $response = "No matching password";
           }
           elseif($hashedPasswordCheck == true)
           {

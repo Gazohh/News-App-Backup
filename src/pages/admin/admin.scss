@@ -1,0 +1,15 @@
+page-admin {
+  .nieuwsNavTitle {
+    color: white;
+    font-weight: 500;
+    font-size: 2rem;
+  }
+
+  body > ion-app > ng-component > ion-nav > page-admin > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+  }
+
+}

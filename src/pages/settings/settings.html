@@ -1,0 +1,51 @@
+<ion-header no-border-bottom>
+  <ion-navbar>
+    <button ion-button menuToggle right class="fakeCenter">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Instellingen</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="" (click)="bewerkProfiel()">
+    <ion-label class="DarkLabel">
+      <ion-icon name="person" class="iconInstellingen"></ion-icon>
+      Bewerk Profiel
+    </ion-label>
+  </ion-item>
+  <ion-item class="" (click)="RaporteerProbleem()">
+    <ion-label class="DarkLabel">
+      <ion-icon name="document" class="iconInstellingen"></ion-icon>
+      Raporteer probleem
+    </ion-label>
+  </ion-item>
+  <ion-item class="">
+    <ion-label class="DarkLabel">
+      <ion-icon name="eye" class="iconInstellingen"></ion-icon>
+      Over ons
+    </ion-label>
+  </ion-item>
+  <ion-item class="">
+    <ion-label class="DarkLabel">
+      <ion-icon name="moon" class="iconInstellingen"></ion-icon>
+      Light/Dark
+    </ion-label>
+    <ion-toggle [(ngModel)]="toggleStatus" (ionChange)="toggleAppTheme()"></ion-toggle>
+  </ion-item>
+  <ion-item class="" (click)="openAdmin()">
+    <ion-label>
+      <ion-icon name="settings" class="iconInstellingen"></ion-icon>
+      Admin panel
+    </ion-label>
+  </ion-item>
+  <ion-item class="" (click)="uitloggen()">
+    <ion-label>
+      <ion-icon name="log-out" class="iconInstellingen"></ion-icon>
+      Uitloggen
+    </ion-label>
+  </ion-item>
+</ion-content>

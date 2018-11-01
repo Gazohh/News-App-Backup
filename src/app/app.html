@@ -1,23 +1,49 @@
-<ion-menu id="myMenu" [content]="content">
-    <ion-header>
-        <ion-toolbar>
-            <ion-title>Menu</ion-title>
+<!-- SplashScreen -->
+<ion-grid style="height: 100%" class="gridPadding">
+  <ion-row justify-content-center align-items-center style="height: 100%" *ngIf="showSplash" class="splash">
+
+    <div class="spinner">
+      <div class="NewsAgeLogo">
+        <img class="NewsAge" src="../assets/imgs/NewsAgeLogo.png">
+      </div>
+      <div class="loader">
+        <img src="../assets/svg/spinner/tail-spin.svg">
+      </div>
+    </div>
+
+  </ion-row>
+</ion-grid>
+<!--  -->
+
+<!-- Menu -->
+<ion-menu [class]="selectedTheme" id="myMenu" [content]="content" [swipeEnabled]="false">
+  <ion-content id="contentAnimation" menuToggle>
+    <ion-list>
+      <ion-navbar class="menuNavBar">
+        <ion-grid class="gridMenu">
+          <ion-col col-9 class="menuCol">
+            <img src="../assets/imgs/Portrait_Placeholder.png" class="avatar-menu" />
+            <h5 ngClass="usernameMenu">Username</h5>
+          </ion-col>
+        </ion-grid>
+      </ion-navbar>
+      <ion-item>
+        <button detail-none ion-item menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          <ion-icon slot="start" [name]="p.icon"></ion-icon>
+          <span class="menu-titles">
+            {{p.title}}
+          </span>
+        </button>
+      </ion-item>
+      <ion-footer class="footerMenu">
+        <ion-toolbar class="toolbarFooter">
+          <div class="versienummer"><b>©NewsAge</b> V5.0.4</div>
         </ion-toolbar>
-    </ion-header>
-
-    <ion-content>
-       <ion-list>
-           <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-               {{p.title}}
-           </button>
-       </ion-list>
-    </ion-content>
-
+      </ion-footer>
+    </ion-list>
+  </ion-content>
 </ion-menu>
 
+
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
-
-
-
-
+<ion-nav [root]="rootPage" [class]="selectedTheme" #content swipeBackEnabled="false"></ion-nav>

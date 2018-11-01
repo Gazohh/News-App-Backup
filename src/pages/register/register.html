@@ -1,38 +1,55 @@
 <ion-content>
-    <ion-grid>
-        <ion-row>
-            <ion-col class="col">
-                <div class="loginFoto">
-                    <div class="form-title"
-                         style="background-image: url(http://gazoh.net/images/axa-studios-media-agency-arnhem-maibanner.jpg)">
-                        <ion-title class="form-title1" style="color: #ffffff;">Registreer</ion-title>
-                    </div>
-                </div><div class="geheel2">
-                <ion-item>
+  <ion-grid style="height: 100%" class="gridPadding">
+    <ion-row justify-content-center align-items-center style="height: 100%">
 
-                    <ion-label floating>Username</ion-label>
-                    <ion-input type="text" [(ngModel)]="username"></ion-input>
-                     </ion-item>
-                <ion-item>
-                    <ion-label floating>E-mail</ion-label>
-                    <ion-input type="email" [(ngModel)]="email"></ion-input>
-                </ion-item>
-                <ion-item>
-                    <ion-label floating>Password</ion-label>
-                    <ion-input type="password" [(ngModel)]="password"></ion-input>
-                </ion-item>
-                <ion-item>
-                    <ion-label floating>Repeat password</ion-label>
-                    <ion-input type="password" [(ngModel)]="repassword"></ion-input>
-            </ion-item>
-                <br><div buttonClass style="width: 50%; margin-left: 20px;">
-                <button class="button3" ion-button (click)="Register()" color="secondary" full round>Aanmaken
-                </button>
-                <br>
-                </div><a (click)="terug()" class="txt3">
-                Heb je al een account? Meld je nu aan!
-            </a>
-           <br> </div> </ion-col>
-        </ion-row>
-    </ion-grid>
+      <ion-col col-12>
+        <div class="ValidatieText">
+          <h2 class="WelkomText2">Meld je nu aan</h2>
+          <p class="gavederText">Maak een account aan om verder te gaan!</p>
+        </div>
+        <div class="ValidatieLogin">
+                  <form novalidate [formGroup]="form">
+                    <div class="form-group">
+                      <ion-item [ngClass]="{ 'ng-touched' : form.get('username').touched }">>
+                        <ion-label floating>Gebruikersnaam</ion-label>
+                        <ion-input type="text" formControlName="username" class="form-control" [(ngModel)]="username"></ion-input>
+                      </ion-item>
+                    </div>
+                    <div *ngIf="form.get('username').touched && form.get('username').invalid" class="alert alert-danger" required>
+                      <div class="validatieText" *ngIf="form.get('username').hasError('required')">Naam moet ingevuld zijn.</div>
+                      <div class="validatieText" *ngIf="form.get('username').hasError('pattern')">Ongeldige naam.</div>
+                    </div>
+
+                    <div class="form-group">
+                      <ion-item [ngClass]="{ 'ng-touched' : form.get('email').touched }">
+                        <ion-label floating>E-mail</ion-label>
+                        <ion-input type="email" formControlName="email" class="form-control" [(ngModel)]="email"></ion-input>
+                      </ion-item>
+                    </div>
+                    <div *ngIf="form.get('email').touched && form.get('email').invalid" class="alert alert-danger" required>
+                      <div class="validatieText" *ngIf="form.get('email').hasError('required')">Email moet ingevuld zijn</div>
+                      <div class="validatieText" *ngIf="form.get('email').hasError('pattern')">Ongeldige Email!</div>
+                    </div>
+
+                    <div class="form-group">
+                      <ion-item [ngClass]="{ 'ng-touched' : form.get('password').touched }">
+                        <ion-label floating>Wachtwoord</ion-label>
+                        <ion-input type="password" formControlName="password" class="form-control" [(ngModel)]="password"></ion-input>
+                      </ion-item>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="form.get('password').touched && form.get('password').invalid ">
+                      <div class="validatieText" *ngIf="form.get('password').hasError('required')">Wachtwoord moet ingevuld zijn</div>
+                      <div class="validatieText" *ngIf="form.get('password').hasError('minLength')">Wachtwoord moet minimaal 8 tekens lang zijn</div>
+                      <div class="validatieText" *ngIf="form.get('password').hasError('pattern')">Wachtwoord moet minstens een hoofdletter, een kleine letter en een cijfer bevatten</div>
+                    </div>
+                  </form>
+
+                  <br>
+                  <div class="Validatie2Login">
+                    <button ion-button class="loginButton" (click)="onSubmit()">Registreren</button>
+                  </div>
+                </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

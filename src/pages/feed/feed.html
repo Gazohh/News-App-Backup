@@ -1,161 +1,87 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
+    <button ion-button menuToggle *ngIf="!isSearchbaropened">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
-      
+    <ion-title *ngIf="!isSearchbaropened">Home</ion-title>
+    <ion-searchbar #searchbar *ngIf="isSearchbaropened" [showCancelButton]="true" (ionCancel)="resetChanges()" (ionInput)="search($event)" placeholder="Waar zijn we naar op zoek?" class="slideInRight"></ion-searchbar>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="isSearchbaropened=true">
+        <ion-icon name="search" *ngIf="!isSearchbaropened"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
+  <ion-segment [(ngModel)]="datepicker" color="dark">
+    <ion-segment-button value="vandaag" (click)="load()">
+      Vandaag
+    </ion-segment-button>
+    <ion-segment-button value="gisteren" (click)="loadYesterday()">
+      Gisteren
+    </ion-segment-button>
+    <ion-segment-button value="driedagengeleden" (click)="load3DaysAgo()">
+      3 dagen geleden
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
+<ion-content>
+  <!-- <div *ngIf="!this.items">
+    <p>Er zijn geen artikelen gevonden op basis van zoek termen!</p>
+    <button ion-button color="light" (click)="resetChanges()">Klik hier om terug te gaan</button>
+  </div> -->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div *ngFor="let item of items" (click)="viewEntry({ record: item })">
+    <ion-card *ngIf="item.verborgen != '1'">
+      <div class="ion-card-image-wrapper">
+        <img *ngIf="!item.image" src="../assets/imgs/noimage.jpg">
+        <img [src]="item.image" *ngIf="item.site == 'NOS.nl'" class="transformFoto">
+        <img [src]="item.image" *ngIf="item.site == 'NU.nl'" class="transformFoto">
+        <img [src]="item.image" *ngIf="item.site != 'NOS.nl' || item.site != 'NU.nl'">
+      </div>
+      <ion-card-content>
+        <div *ngIf="rol == 1">
+          <ion-fab right *ngIf="item.site == 'De Telegraaf'">
+            <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorTelegraaf">
+              <ion-icon name="eye"></ion-icon>
+            </button>
+          </ion-fab>
+          <ion-fab right *ngIf="item.site == 'NOS'">
+            <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorNOS">
+              <ion-icon name="eye"></ion-icon>
+            </button>
+          </ion-fab>
+          <ion-fab right *ngIf="item.site == 'NU.nl'">
+            <button ion-fab mini (click)="setHideArticle(item.id)" class="ColorNU">
+              <ion-icon name="eye"></ion-icon>
+            </button>
+          </ion-fab>
+        </div>
 
-<ion-content class="cards-bg">
+        <ion-card-title class="TitleFeed" *ngIf="rol != 1">
+          <strong>{{item.title}}</strong>
+        </ion-card-title>
+        <ion-card-title class="editTitleFeed" *ngIf="rol == 1">
+          <strong>{{item.title}}</strong>
+        </ion-card-title>
+        <p>{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
+      </ion-card-content>
+      <ion-item class="BadgesFeed">
+        <ion-icon name="contact" item-start></ion-icon>
+        <ion-badge item-end *ngIf="item.site == 'De Telegraaf'" class="ColorTelegraaf">{{item.site}}</ion-badge>
+        <ion-badge item-end *ngIf="item.site == 'NOS'" class="ColorNOS">{{item.site}}</ion-badge>
+        <ion-badge item-end *ngIf="item.site == 'NU.nl'" class="ColorNU">{{item.site}}</ion-badge>
+      </ion-item>
+      <ion-item class="BadgesFeed">
+        <ion-icon name="time" item-start></ion-icon>
+        <ion-badge item-end *ngIf="item.site == 'De Telegraaf'" class="ColorTelegraaf">{{item.datum}}</ion-badge>
+        <ion-badge item-end *ngIf="item.site == 'NOS'" class="ColorNOS">{{item.datum}}</ion-badge>
+        <ion-badge item-end *ngIf="item.site == 'NU.nl'" class="ColorNU">{{item.datum}}</ion-badge>
+      </ion-item>
 
-  <ion-card>
-
-    <img src="assets/imgs/img1.png"/>
-
-    <ion-card-content>
-      <ion-card-title>
-        Nine Inch Nails Live
-      </ion-card-title>
-      <p>
-        The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
-      </p>
-    </ion-card-content>
-
-    <ion-row no-padding>
-      <ion-col>
-        <button ion-button clear small color="danger" icon-start>
-          <ion-icon name='star'></ion-icon>
-          Favorite
-        </button>
-      </ion-col>
-      <ion-col text-center>
-        <button ion-button clear small color="danger" icon-start>
-        
-        </button>
-      </ion-col>
-      <ion-col text-right>
-        <button ion-button clear small color="danger" icon-start>
-          <ion-icon name='share-alt'></ion-icon>
-          Share
-        </button>
-      </ion-col>
-    </ion-row>
-
-  </ion-card>
-
-  <ion-card>
-
-    <div>
-      <img src="assets/imgs/img2.png"/>
-    </div>
-
-    <ion-card-content>
-      <ion-card-title>
-        Erykah Badu
-      </ion-card-title>
-      <p>
-      American singer-songwriter, record producer, activist, and actress, Badu's style is a prime example of neo-soul.
-      </p>
-    </ion-card-content>
-
-    <ion-row no-padding>
-      <ion-col>
-        <button ion-button clear small color="danger" icon-start>
-          <ion-icon name='star'></ion-icon>
-          Favorite
-        </button>
-      </ion-col>
-      <ion-col text-center>
-        <button ion-button clear small color="danger" icon-start>
-        
-        </button>
-      </ion-col>
-      <ion-col text-right>
-        <button ion-button clear small color="danger" icon-start>
-          <ion-icon name='share-alt'></ion-icon>
-          Share
-        </button>
-      </ion-col>
-    </ion-row>
-
-  </ion-card>
-
-  <ion-card>
-
-    <div>
-      <img src="assets/imgs/img3.png"/>
-    </div>
-
-    <ion-card-content>
-      <ion-card-title>
-        Queen
-      </ion-card-title>
-      <p>
-        The British rock band formed in London in 1970, and is considered one of the biggest stadium rock bands in the world.
-      </p>
-    </ion-card-content>
-
-    <ion-row no-padding>
-      <ion-col>
-        <button ion-button clear small color="danger" icon-start>
-          <ion-icon name='star'></ion-icon>
-          Favorite
-        </button>
-      </ion-col>
-      <ion-col text-center>
-        <button ion-button clear small color="danger" icon-start>
-        
-        </button>
-      </ion-col>
-      <ion-col text-right>
-        <button ion-button clear small color="danger" icon-start>
-          <ion-icon name='share-alt'></ion-icon>
-          Share
-        </button>
-      </ion-col>
-    </ion-row>
-
-  </ion-card>
-
-  <ion-card>
-
-    <div>
-      <img src="assets/imgs/img4.png"/>
-    </div>
-
-    <ion-card-content>
-      <ion-card-title>
-        Run-D.M.C.
-      </ion-card-title>
-      <p>
-        The American hip hop group widely acknowledged as one of the most influential acts in the history of hip hop.
-      </p>
-    </ion-card-content>
-
-    <ion-row no-padding>
-      <ion-col>
-        <button ion-button clear small color="danger" icon-start>
-          <ion-icon name='star'></ion-icon>
-          Favorite
-        </button>
-      </ion-col>
-      <ion-col text-center>
-        <button ion-button clear small color="danger" icon-start>
-          
-        </button>
-      </ion-col>
-      <ion-col text-right>
-        <button ion-button clear small color="danger" icon-start>
-          <ion-icon name='share-alt'></ion-icon>
-          Share
-        </button>
-      </ion-col>
-    </ion-row>
-
-  </ion-card>
-
-
-
+    </ion-card>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

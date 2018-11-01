@@ -1,26 +1,14 @@
-ion-grid {
-  height: 100%;
-  justify-content: center;
+// Register Button
+.registerButton {
+  margin: 0% !important;
+  background-color: #00000066 !important;
+  border-radius: 0 !important;
+  width: 50% !important;
 }
 
-.center {
-  text-align: center;
+.homeButton {
+  margin: 0% !important;
+  background-color: #00000066 !important;
+  border-radius: 0 !important;
+  width: 50% !important;
 }
-
-body > ion-app > ng-component > ion-nav > page-register > ion-grid > ion-row > ion-col > ion-fab {
-  margin-top: 3vh !important;
-}
-
-fab-content-margin {
-  margin-top: 4vh;
-}
-
-#terugbutton
-{
-background-color: navy;
-}
-
-.text-alignment-center {
-  text-align: center !important;
-}
-

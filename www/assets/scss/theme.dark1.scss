@@ -1,0 +1,188 @@
+.dark-theme {
+  // lOGIN
+  .darkThemeLogin {
+    background-color: #2f2f2f !important;
+  }
+
+  .grid {
+    background-color: #303030;
+  }
+  //background
+  ion-content {
+    background-color: #212121 !important;
+  }
+
+  .toolbar-title {
+    color: #ffffff !important;
+  }
+
+  .DarkLabel {
+    color: #fff;
+    border: none;
+  }
+
+  .dark-theme .darkItem {
+    background-color: #212121 !important;
+  }
+
+  //header voor pagina
+  .header .toolbar-background {
+    background-color: #29708c !important;
+  }
+
+  .ionTitle {
+    background-color: #212121 !important;
+  }
+
+
+  .label-md {
+    color: #FFFFFF !important;
+  }
+
+  .uitloggen {
+    background-color: #212121 !important;
+  }
+
+  .item-ios.item-block .item-inner {
+    border: none;
+  }
+
+  .menu {
+    background-color: #212121;
+  }
+  // Menu
+  .adminUsers {
+    background-color: transparent !important;
+  }
+
+  .menuBuitenkant {
+    background-color: #212121;
+    color: #fff;
+  }
+
+  .menuScherm {
+    background-color: #212121 !important;
+    color: #fff;
+  }
+
+#contentAnimation > div.scroll-content > ion-list > ion-footer > ion-toolbar > div.toolbar-background.toolbar-background-md {
+  background-color: #2f2f2f !important;
+}
+
+.versienummer {
+  color: #fff;
+}
+
+ #contentAnimation > div.scroll-content {
+    background-color: #212121 !important;
+  }
+
+  .segment-md-dark .segment-button {
+    color: #FFF;
+  }
+
+  .segment-md-dark .segment-button.activated,
+  .segment-md-dark .segment-button.segment-activated {
+    color: #FFF;
+  }
+
+  .sourceTekst {
+    background-color: #242424;
+  }
+
+  .sourceItem {
+    background-color: #242424;
+  }
+
+  .sourceTitel {
+    background-color: #222222;
+    color: #fff;
+  }
+
+  .TitelSources {
+    color: #fff;
+  }
+
+  p {
+    color: #fff;
+  }
+
+  h2 {
+    color: #FFF;
+  }
+
+  b {
+    color: #FFF;
+  }
+
+  .card-content-md {
+    background-color: #2f2f2f !important;
+    color: #FFF;
+  }
+
+  .BadgesFeed {
+    background: #2f2f2f !important;
+  }
+
+  .card-md p {
+    color: #FFFFFF;
+  }
+  //titel van card feed
+  b,
+  strong {
+    color: #FFF;
+  }
+  //div badges en title van de krant(telegraaf etc.)
+  .item-md {
+    background-color: #212121 !important;
+    color: #FFF;
+  }
+
+  .headerText {
+    background-color: #2f2f2f !important;
+    color: #FFF;
+  }
+
+  .segment-md-dark .segment-button.segment-activated {
+    border-color: #fff;
+  }
+
+  .segmentClass {
+    background-color: #242424;
+  }
+
+  .card-md {
+    background: transparent;
+  }
+
+  // Button voor de sources
+  .ImportClassesButton {
+    background-color: #328a45;
+    color: #fff;
+  }
+
+  .DeleteClassesButton {
+    color: #fff;
+    background-color: #e93a3a;
+  }
+  //button voor het menu
+  .bar-button-clear-md-default,
+  .bar-button-default-md,
+  .bar-button-md-default {
+    background-color: #29708c;
+    color: white;
+  }
+
+  // Icon margin
+  .iconInstellingen {
+    margin-right: 2rem !important;
+  }
+
+  .wachtwoordWijzigen {
+    color: #3ca7d1 !important;
+    padding-left: 5% !important;
+    margin-top: 25px;
+    font-size: smaller;
+  }
+
+}

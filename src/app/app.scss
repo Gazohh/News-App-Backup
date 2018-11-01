@@ -1,16 +1,945 @@
-// http://ionicframework.com/docs/theming/
+// Fontawesome
+@import "www/assets/scss/fontawesome.scss";
+@import "www/assets/scss/solid.scss";
+@import "www/assets/scss/brands.scss";
+@import "www/assets/scss/theme.dark1.scss";
 
+.user {
+  @extend %fa-icon;
+  @extend .fas;
 
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
+  &:before {
+    content: fa-content($fa-var-user);
+  }
+}
+
+ion-slide.swiper-slide {
+  align-items: flex-start;
+}
+
+.header .toolbar-background {
+  background-color: #29708c !important;
+}
 //
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
+// SettingsPage
 //
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
+// Icon margin
+
+.iconInstellingen {
+  margin-right: 2rem !important;
+}
+//
+// Splash screen
+//
+
+.splash {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3ca7d1;
+}
+
+.NewsAge {
+  width: 40% !important;
+  height: 40% !important;
+}
+
+.NewsAgeLogo {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 100%;
+  margin-bottom: 10%;
+}
+
+.loader {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 100%;
+}
+
+.colFlex {
+  display: flex;
+  align-items: center;
+}
+// Register Button (RegisterPage)
+//
+
+.registerButton {
+  margin: 0 !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  border-radius: 0 !important;
+  width: 50% !important;
+  box-shadow: none;
+  text-transform: uppercase;
+}
+//
+// Register Text
+//
+
+body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div {
+  color: white;
+}
+//
+// Home Button (HomePage)
+//
+
+.homeButton {
+  margin: 0 !important;
+  background-color: rgb(36, 36, 75) !important;
+  border-radius: 0 !important;
+  width: 50% !important;
+  box-shadow: none;
+  text-transform: uppercase;
+}
+//
+// Home
+//
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {
+  padding-right: 4vh;
+}
+//
+// login
+//
+
+.welkomText {
+  padding: 3vh;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  font-weight: 800;
+}
+
+.loginText {
+  padding-left: 3vh;
+  margin-top: 5px;
+}
+
+.gridPadding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.loginButton {
+  display: block;
+  width: 107%;
+  margin: 0 auto;
+  border-radius: 1vh;
+}
+
+.nogGeenAccount {
+  font-size: 80%;
+  font-weight: 300;
+  float: right;
+}
+
+.ValidatieLogin {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 1vh;
+  margin-right: 16%;
+  right: 0;
+}
+
+.Validatie2Login {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 1vh;
+  margin-right: 16%;
+}
+
+.ValidatieRegister {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 1vh;
+  margin-top: 6%;
+  margin-right: 16%;
+}
+
+.Validatie2Register {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 1vh;
+  margin-right: 16%;
+}
+
+.alignCenter {
+  display: block;
+  margin: 0 auto;
+}
+
+.colPadding {
+  padding: 0;
+  position: absolute !important;
+  top: 0 !important;
+}
+
+.WelkomText {
+  font-weight: 800;
+  font-size: 3rem;
+  display: block;
+  margin: 0 auto;
+  color: #29708c;
+}
+
+.WelkomText2 {
+  font-weight: 800;
+  font-size: 2.7rem;
+  display: block;
+  margin: 0 auto;
+  color: #488aff;
+}
+
+.ValidatieText {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.gavederText {
+  display: block;
+  margin: 0 auto;
+}
+
+.inloggenText {
+  color: #000 !important;
+}
+//
+// HTML *
+//
+
+.Title {
+  color: #fff;
+  text-align: center !important;
+  padding: 0 12px;
+  font-weight: 500;
+  color: #FFF !important;
+}
+
+ion-grid {
+  height: 100%;
+  justify-content: center;
+}
+
+.center {
+  text-align: center;
+}
+
+body > ion-app > ng-component > ion-nav > page-register > ion-grid > ion-row > ion-col > ion-fab {
+  margin-top: 3vh !important;
+}
+
+fab-content-margin {
+  margin-top: 4vh;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(1) {
+  display: block;
+  text-transform: capitalize;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button:nth-child(1) > div.item-inner > div > ion-label::first-letter {
+  text-transform: capitalize !important;
+}
+
+#terugbutton {
+  background-color: navy;
+}
+
+.text-alignment-center {
+  text-align: center !important;
+}
+
+.ion-page {
+  background-color: white;
+}
+
+.ios .ion-page.show-page ~ .nav-decor {
+  background-color: white !important;
+}
+
+.grid {
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #ebeeef;
+}
+
+.geheel {
+  background-color: white;
+  height: 65%;
+  border-radius: 10px;
+}
+
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
+  background: #ebeeef;
+  padding: 10px;
+}
+
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
+  background: #ebeeef;
+  padding: 10px;
+}
+
+.form-title::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.button1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 160px;
+  height: 50px;
+  background-color: #57b846;
+  border-radius: 25px;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  margin-left: 15px;
+  margin-top: 30px;
+}
+
+.center {
+  text-align: center;
+}
+
+ion-grid {
+  height: 100%;
+  justify-content: center;
+}
+// Background color
+
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
+  background: #ebeeef;
+  padding: 10px;
+}
+//
+// lOGIN PAGE
+//
+// Background color login
+
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content {
+  background-color: #fff !important;
+}
+
+.form-title {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 70px 0 74px;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+  text-transform: uppercase;
+}
+
+.clouds {
+  height: 100%;
+  width: 100%;
+}
+
+.logo {
+  background-repeat: no-repeat;
+  background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.txt1 {
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #999999;
+  float: left;
+  margin-left: 2rem;
+}
+
+.txt2 {
+  font-family: Poppins-Regular;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #999999;
+  float: left;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.button1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 160px;
+  height: 50px;
+  background-color: #57b846;
+  border-radius: 25px;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+  transition: all 0.4s;
+  margin-left: 15px;
+  margin-top: 30px;
+}
+
+.background {
+  background-image: url("../assets/imgs/login.png");
+  width: 400px;
+  height: 400px;
+}
+//
+// scroll-content
+//
+
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content {
+  background-color: #ebeeef;
+}
+
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
+  background: #ebeeef;
+  padding: 10px;
+}
+
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
+  background: #ebeeef;
+  padding: 10px;
+}
+//
+// Row Buttons
+//
+
+body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div.loginFoto > div > div {
+  bottom: 0;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+}
+
+.button3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 160px;
+  height: 50px;
+  background-color: rgb(36, 36, 75) !important;
+  border-radius: 25px;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  width: 50%;
+  margin: auto;
+  text-transform: uppercase;
+}
+
+.txt3 {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #999999;
+  padding-left: 15px;
+}
+//
+// Android (MD)
+//
+
+.bar-button-md {
+  margin: 0 0.2rem;
+  padding: 0 5px;
+  border-radius: 2px;
+  height: 32px;
+  border: 0;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.bar-button-menutoggle,
+ion-buttons {
+  z-index: 99;
+}
+
+.bar-button-clear-md-default,
+.bar-button-default-md,
+.bar-button-md-default {
+  color: #FFF !important;
+  background-color: transparent;
+}
+
+.toolbar-title-md {
+  text-align: center !important;
+  padding: 0 12px;
+  font-weight: 500;
+  color: #FFF !important;
+}
+//
+// Navbar
+//
+//
+// Navbar Animatie
+//
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-header > ion-navbar {
+  overflow: inherit !important;
+}
+// ion-title {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   padding: 0 90px 1px;
+//   width: 100%;
+//   height: 100%;
+//   text-align: center;
+// }
+
+.fakeCenter {
+  visibility: hidden !important;
+}
+
+.item-ios.item-block .item-inner.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus):last-child {
+  border-bottom-color: #f53d3d;
+  -webkit-box-shadow: inset 0 -1px 0 0 #f53d3d;
+  box-shadow: inset 0 -1px 0 0 #f53d3d;
+}
+
+.item-ios.item-block .item-inner.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+  border-bottom-color: #f53d3d;
+  -webkit-box-shadow: inset 0 -1px 0 0 #f53d3d;
+  box-shadow: inset 0 -1px 0 0 #f53d3d;
+}
+
+.validatieText {
+  padding-left: 1.5rem !important;
+  padding-top: 0.5rem !important;
+}
+
+.bar-button-clear-ios-default,
+.bar-button-default-ios,
+.bar-button-default.bar-button-ios-default {
+  color: #fff;
+}
+//
+// Cards
+//
+
+.Card {
+  border-radius: 1rem;
+}
+
+.toolbar-background {
+  background-color: rgb(20, 20, 20) !important;
+}
+
+.toolbar-title-ios {
+  color: white;
+}
+//
+// Menu
+// Text van menu
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button > div.item-inner > div > ion-label {
+  text-align: left !important;
+}
+
+.menu-titles {
+  padding: 0 0 0 25px;
+}
+
+.hide-card {
+  -webkit-box-shadow: none!important;
+}
+
+.avatar-menu {
+  height: 100%;
+  border-radius: 50%;
+  display: inline-block;
+  display: block;
+  background-color: #212121;
+  margin: 0 auto;
+}
+
+.menuCol {
+  margin: 0 auto;
+}
+
+.gridMenu {
+  background-color: transparent !important;
+  height: 20vh !important;
+  padding-top: 0px;
+}
+
+.usernameMenu {
+  color: white;
+  text-align: center;
+  margin-top: 3%;
+}
+
+.usernameProfiel {
+  font-size: small;
+  text-align: center;
+  color: #3ca7d1;
+  margin-top: 10px;
+}
+
+.menuNavBar {
+  padding-bottom: 2rem;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-navbar > div.toolbar-background.toolbar-background-md {
+  background-image: url("../assets/imgs/backgroundMenu.jpg");
+  background-repeat: repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  position: absolute;
+  background-color: transparent !important;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-item > div.item-inner > div > ion-label > button > div.item-inner > div > ion-label > ion-icon {
+  float: left !important;
+}
+
+.list-md .item-block .item-inner {
+  border-bottom: 0;
+}
+
+#contentAnimation > div.scroll-content > ion-list > ion-footer > ion-toolbar > div.toolbar-background.toolbar-background-md {
+  background-color: #fff !important;
+  color: #000!important;
+}
+
+.versienummer {
+  margin: 0 0 0 25px;
+}
+//
+// Card Category
+//
+
+.card-title2 {
+  font-size: 150% !important;
+  font-weight: bold!important;
+  color: #fff !important;
+  text-shadow: 0 0 7px #000000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 90px 1px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.card-background-page .card-subtitle {
+  top: 63% !important;
+  text-shadow: 0 0 7px #000000;
+}
+//
+// FeedPage Card Design
+//
+
+body > ion-app > ng-component > ion-nav > page-feed > ion-content > div.scroll-content > div > ion-card > ion-item.hideButton.item.item-block.item-md > div.item-inner > div > ion-label {
+  margin: 0;
+}
+
+.titleFeed {
+  display: block;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  color: #222;
+  margin: 2px 0;
+  padding: 8px 0;
+}
+
+.editTitleFeed {
+  margin-right: 33px !important;
+  display: block;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  color: #222;
+  margin: 2px 0;
+  padding: 8px 0;
+}
+//
+//
+
+.ColorTelegraaf {
+  background-color: rgb(39, 80, 154) !important;
+}
+
+.ColorNU {
+  background-color: rgb(2, 0, 81) !important;
+}
+
+.ColorNOS {
+  background-color: rgb(208, 37, 39) !important;
+}
+
+.headerText {
+  font-weight: bold;
+  font-size: 2rem;
+}
+//
+// FeedCards
+//
+
+.feedCard {
+  margin: 0;
+  border-radius: 2px;
+  width: 100%;
+  font-size: 1.4rem;
+  background: #fff;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.feedGrid {
+  padding: 0 !important;
+}
+
+.feedCol {
+  margin-bottom: 1.5rem;
+}
+// FEED images
+
+page-feed img {
+  text-align: center !important;
+  display: block !important;
+  margin: 0 auto !important;
+  vertical-align: middle !important;
+  overflow: hidden !important;
+  min-height: 204px !important;
+  max-height: 284px !important;
+}
+
+.ion-card-image-wrapper {
+  overflow: hidden !important;
+  background: url("../../assets/imgs/noimage.jpg");
+  height: 205px;
+  align-content: center;
+}
+// NieuwsPage
+
+body > ion-app > ng-component > ion-nav > page-nieuws > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  overflow: hidden;
+}
+
+.nieuwsNavTitle {
+  color: white;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.nieuwsCard {
+  margin: 0;
+  border-radius: 2px;
+  width: 100%;
+  font-size: 1.4rem;
+  background: #fff;
+  box-shadow: none;
+}
+
+.nieuwsDatum {
+  color: #8f8e8e !important;
+}
+//
+// Sources
+//
+
+.buttonIcon {
+  padding-right: 8px;
+}
+//
+// Appbrowser button
+//
+
+body > ion-app > ng-component > ion-nav > page-nieuws > ion-content > div.scroll-content > ion-card > ion-card-content > button {
+  top: 10px !important;
+}
+//
+// SourcesPage
+//
+
+.TitelSources {
+  float: left;
+  font-weight: bold !important;
+  color: #9f9f9f;
+}
+// Titel Sources List MD  lABEL
+
+body > ion-app > ng-component > ion-nav > page-sources > ion-content > div.scroll-content > ion-slides > div > div.swiper-wrapper > ion-slide.swiper-slide.swiper-slide-active > div > ion-list > ion-item:nth-child(1) > div.item-inner > div > ion-label {
+  marin-bottom: 0;
+}
+//
+// ProfilePage
+//
+
+.avatar-profiel {
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  display: inline-block;
+  top: 0;
+  bottom: 0;
+  margin: 0 auto;
+  display: block;
+}
+
+.AvatarProfiel {
+  padding-top: 1rem;
+}
+
+.wachtwoordWijzigen {
+  color: #3ca7d1 !important;
+  padding-left: 1.7rem !important;
+  margin-top: 18px;
+  font-size: smaller;
+}
+// headerText
+
+body > ion-app > ng-component > ion-nav > page-profiel > ion-header > ion-navbar > div.toolbar-content.toolbar-content-md > ion-title > div {
+  padding-left: 0;
+  padding-right: 48px;
+}
+// Transitions
+//
+// slideInRight
+@-webkit-keyframes slideInRight {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+@keyframes slideInRight {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+.slideInRight {
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+  animation-duration: 300ms !important;
+}
+//slideInLeft
+@-webkit-keyframes slideInLeft {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+@keyframes slideInLeft {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+.slideInLeft {
+  -webkit-animation-name: slideInLeft;
+  animation-name: slideInLefts;
+  animation-duration: 300ms;
+}

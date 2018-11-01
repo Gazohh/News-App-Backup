@@ -1,140 +1,140 @@
-import {Component, ViewChild, OnInit, AfterViewInit} from '@angular/core';
-import {NavController, AlertController, LoadingController} from 'ionic-angular';
-import {RegisterPage} from "../register/register";
-import {HttpClient, HttpHeaders, HttpRequest} from "@angular/common/http";
+import { Component } from '@angular/core';
+import { NavController, LoadingController } from 'ionic-angular';
+import { RegisterPage } from "../register/register";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import 'rxjs/add/operator/map';
-import {FeedPage} from "../feed/feed";
-import {FavorietenPage} from "../favorieten/favorieten";
-import {ToastController} from 'ionic-angular';
-import {Keyboard} from '@ionic-native/keyboard';
+import { CategoryPage } from "../category/category";
+import { ToastController } from 'ionic-angular';
+import { Keyboard } from '@ionic-native/keyboard';
 import { MenuController } from "ionic-angular";
+import { FeedPage } from "../feed/feed";
+import { Events } from 'ionic-angular';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { Platform } from 'ionic-angular';
 
 @Component({
-    selector: 'page-home',
-    templateUrl: 'home.html'
+  selector: 'page-home',
+  templateUrl: 'home.html'
 })
 
 export class HomePage {
+    CategoryPage: any;
 
-    username:string;
-    password:string;
+    dataUser:any;
+    username: string;
+    email: string;
+    password: string;
+    id:any;
+    emailVerified: any;
+    rol: any;
+    creationdate:any;
+    token = Math.random().toString(36).substring(7);
 
-    FavorietenPage = FavorietenPage;
+    rootPage: any = HomePage;
+
     FeedPage = FeedPage;
+    data: string;
 
-
-    data:string;
 
     constructor(
-                public navCtrl: NavController,
-                private alertCtrl: AlertController,
-                public loading: LoadingController,
-                public http: HttpClient,
-                private toastCtrl: ToastController,
-                private keyboard: Keyboard,
-                public menuCtrl: MenuController) {
+    public navCtrl: NavController,
+    public loading: LoadingController,
+    public http: HttpClient,
+    private toastCtrl: ToastController,
+    public menuCtrl: MenuController,
+    public events: Events,
+    private screenOrientation: ScreenOrientation,
+    public platform: Platform,
+    private keyboard: Keyboard) {
 
-        this.menuCtrl.enable(false, 'myMenu');
-        keyboard.disableScroll(true);
+
+    if (this.platform.is('cordova')) {
+      this.platform.ready().then(() => {
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+      })
     }
 
-    // Console log die username en password terug geeft.
-    login() {
+    this.menuCtrl.enable(false, 'myMenu');
+    keyboard.disableScroll(true);
 
-        console.log("Username: " + this.username);
+  }
 
-        console.log("Password: " + this.password);
+  //
+  // Buttons met Push
+  //
+
+  // Push naar de register pagina
+  goRegister() {
+    this.navCtrl.push(RegisterPage);
+  }
+  signIn() {
+    // Controleert of de velden wel zijn ingevuld
+    if (this.email == null || this.password == null) {
+      let toast = this.toastCtrl.create({
+        message: 'Niet alle velden zijn ingevuld!',
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
     }
-
-    // Push naar de register pagina
-    goRegister() {
-        this.navCtrl.push(RegisterPage);
-    }
-
-    signIn(){
-
-//// check to confirm the username and password fields are filled
-
-        if(this.username == null || this.password  == null ){
-
-            let toast = this.toastCtrl.create({
-                message: 'Niet alle velden zijn ingevuld!',
-                duration: 3000,
-                position: 'top'
-            });
-
-            toast.present();
-        }
-
-    else
-
-        {
-
-            var headers = new HttpHeaders();
-
-            headers.append("Accept", 'application/json');
-
-            headers.append('Content-Type', 'application/json' );
-
-            let options = { headers: headers };
-
-            let data = {
-
-                username: this.username,
-
-                password: this.password
-
-            };
-
-            let loader = this.loading.create({
-
-                content: 'Aan het inloggen...',
-
+    else {
+        var headers = new HttpHeaders();
+        headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json');
+        let options = { headers: headers };
+        let data = {
+            email: this.email,
+            password: this.password
+        };
+        let loader = this.loading.create({
+            content: 'Aan het inloggen...',
         });
-
-            loader.present().then(() => {
-
-                this.http.post('http://www.gazoh.net/login.php' ,data,options)
-
-                    .subscribe(res => {
-
-                        console.log(res);
-
-                        loader.dismiss();
-
-                        if(res=="Succesfully logged in!"){
-
-                            let toast = this.toastCtrl.create({
+        loader.present().then(() => {
+            // Maakt verbinding met login.php en checkt of gegevens kloppen
+            this.http.post('http://www.gazoh.net/getgebruiker.php', data, options)
+                .subscribe(data => {this.dataUser = data});
+            this.http.post('http://www.gazoh.net/login.php', data, options)
+                .subscribe(res => {
+                    console.log(res);
+                    loader.dismiss();
+                    if (res == "Succesfully logged in!") {
+                        //Connectie met database
+                        let toast = this.toastCtrl.create({
                             message: "U bent ingelogd!",
-                                duration: 2500,
-                                position: "top"
+                            duration: 2500,
+                            position: "top",
+                            showCloseButton: true,
+                            closeButtonText: "OK"
                         });
 
-                            toast.present();
-                            this.navCtrl.setRoot(FeedPage);
+                        // Localstorage Gebruikersdetails
+                        localStorage.setItem("userId", this.dataUser.id);
+                        localStorage.setItem("userName", this.dataUser.username);
+                        localStorage.setItem("userEmail", this.dataUser.email);
+                        localStorage.setItem("userEmailVerified", this.dataUser.emailVerified);
+                        localStorage.setItem("userRole", this.dataUser.rol);
+                        localStorage.setItem("userCreationDate", this.dataUser.creationdate);
+                        localStorage.setItem("sessionToken", this.token);
 
-                        }else
+                        // Localstorage Email
+                        localStorage.setItem("email", this.email);
+                        this.navCtrl.setRoot(CategoryPage);
 
-                        {
 
-                            let toast = this.toastCtrl.create({
 
-                            message:"Uw gegevens zijn onjuist, probeer het nogmaals.",
-                                showCloseButton: true,
-                                closeButtonText: "OK",
-                                position: "top"
-
-                        });
-
-                            toast.present();
-
-                        }
-
-                    });
-
-            });
-
-        }
-
+                        toast.present();
+                    }
+            else {
+              let toast = this.toastCtrl.create({
+                message: "Uw gegevens zijn onjuist, probeer het nogmaals.",
+                showCloseButton: true,
+                closeButtonText: "OK",
+                position: "top"
+              });
+              toast.present();
+            }
+          });
+      });
     }
+  }
 }

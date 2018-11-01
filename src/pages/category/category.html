@@ -1,0 +1,80 @@
+<ion-header no-border-bottom>
+  <ion-navbar>
+    <button ion-button menuToggle right class="fakeCenter">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Categorie�n</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+<ion-header no-border-bottom>
+  <ion-navbar>
+    <button ion-button menuToggle right class="fakeCenter">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Categorieën</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+<ion-content class="card-background-page" id="deleteCards">
+
+        <ion-card class="cardCategory">
+          <div (click)="goFeed()">
+            <img src="../../assets/imgs/Nieuws.jpg">
+            <ion-title class="card-title2">Algemeen</ion-title>
+            <div class="card-subtitle">{{this.aantalartikelen}} Artikelen vandaag</div>
+          </div>
+        </ion-card>
+
+        <ion-card class="cardCategory">
+          <div (click)="goSport()">
+            <img src="../../assets/imgs/Sport.jpg">
+            <ion-title class="card-title2">Sport</ion-title>
+            <div class="card-subtitle">0 Artikelen vandaag</div>
+          </div>
+        </ion-card>
+
+        <ion-card class="cardCategory">
+          <div (click)="goEconomie()">
+            <img src="../../assets/imgs/Economie.jpg">
+            <ion-title class="card-title2">Economie</ion-title>
+            <div class="card-subtitle">0 Artikelen vandaag</div>
+          </div>
+        </ion-card>
+
+        <ion-card class="cardCategory">
+          <div (click)="goMisdaad()">
+            <img src="../../assets/imgs/Misdaad.jpg">
+            <ion-title class="card-title2">Misdaad</ion-title>
+            <div class="card-subtitle">0 Artikelen vandaag</div>
+          </div>
+        </ion-card>
+
+    <ion-card class="cardCategory">
+        <div (click)="goTech()">
+          <img src="../../assets/imgs/Tech.jpg">
+          <ion-title class="card-title2">Tech</ion-title>
+          <div class="card-subtitle">0 Artikelen vandaag</div>
+        </div>
+      </ion-card>
+
+      <ion-card class="cardCategory">
+        <div (click)="goAuto()">
+          <img src="../../assets/imgs/Car.jpg">
+          <ion-title class="card-title2">Auto</ion-title>
+          <div class="card-subtitle">0 Artikelen vandaag</div>
+        </div>
+      </ion-card>
+
+      <ion-card class="cardCategory">
+        <div (click)="goVermaak()">
+          <img src="../../assets/imgs/Entertainment.jpg">
+          <ion-title class="card-title2">Entertainment</ion-title>
+          <div class="card-subtitle">0 Artikelen vandaag</div>
+        </div>
+      </ion-card>
+</ion-content>

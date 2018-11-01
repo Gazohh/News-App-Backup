@@ -1,0 +1,54 @@
+<!--
+  Generated template for the AdminPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar class="nieuwsNavTitle">
+   Admin
+  </ion-navbar>
+  <ion-segment [(ngModel)]="checklist" color="primary">
+    <ion-segment-button value="artikelen" (click)="selectArtikelen()">
+      Verborgen
+    </ion-segment-button>
+    <ion-segment-button value="gebruikers" (click)="selectGebruikers()">
+      Gebruikers
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+
+<ion-content padding>
+    <div *ngIf="checklist == 'artikelen'">
+        <ion-searchbar placeholder="Zoek.." (ionInput)="searchArtikel($event)" [showCancelButton]="true" (ionCancel)="resetArtikelen()" (ionClear)="resetChanges()"></ion-searchbar>
+    <ion-card *ngFor="let item of artikelenlijst" (click)="viewEntry({ record: item })">
+        <img *ngIf="!item.image" src="http://gazoh.net/images/noimage.jpg">
+        <img [src]="item.image">
+        <ion-card-content>
+            <ion-card-title>
+                <strong>{{item.title}}</strong>
+            </ion-card-title>
+            <p>{{htmlToPlaintext(item.description) | slice:0:120}}...</p>
+        </ion-card-content>
+
+        <!-- Funtie nog schrijven voor if == nu.nl of andere website set badge kleur  -->
+        <ion-item>
+            <ion-icon name="contact" item-start></ion-icon>
+            <ion-badge item-end>{{item.site}}</ion-badge>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="time" item-start></ion-icon>
+            <ion-badge item-end>{{item.datum}}</ion-badge>
+        </ion-item>
+    </ion-card>
+    </div>
+
+        <ion-list inset *ngIf="checklist == 'gebruikers'">
+            <ion-item-group>
+                <ion-row>
+                <ion-item class="adminUsers" *ngFor="let user of gebruikerslijst" ><strong>ID : </strong> {{user.id}} | <strong>{{user.email}} |</strong> <button ion-button color="secondary" item-right><ion-icon name="create"></ion-icon></button><button ion-button color="danger" item-right><ion-icon name="trash"></ion-icon></button></ion-item>
+                </ion-row>
+            </ion-item-group>
+        </ion-list>
+</ion-content>

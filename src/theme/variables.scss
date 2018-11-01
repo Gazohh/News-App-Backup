@@ -1,244 +1,58 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
-
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
 $font-path: "../assets/fonts";
-
-
-// The app direction is used to include
+$fa-font-path: "../assets/webfonts"; // The app direction is used to include
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
-
-
-@import "ionic.globals";
-
-
-// Shared Variables
+@import "ionic.globals"; // Shared Variables
 // --------------------------------------------------
 // To customize the look and feel of this app, you can override
 // the Sass variables found in Ionic's source scss files.
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
-
-
-
-
-// Named Color Variables
+@import "theme.light";
+@import "theme.dark"; // Named Color Variables
 // --------------------------------------------------
 // Named colors makes it easy to reuse colors on various components.
 // It's highly recommended to change the default colors
 // to match your app's branding. Ionic uses a Sass map of
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
-
+$text-input-ios-show-focus-highlight: true;
 $colors: (
-  primary:    #488aff,
-  secondary:  #57b846,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
-);
-
-
-// App iOS Variables
+  primary: #488aff,
+  secondary: #57b846,
+  danger: #f53d3d,
+  light: #f4f4f4,
+  dark: #222,
+  green: #27843b,
+  darkAppKleur: #29708c,
+  lightAppKleur: #3ca7d1
+); // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
-.ion-page // dit is voor iOS zodat de background niet zwart komt te zien door IONIC's transparency.
-{
-  background-color: white;
-}
-
-.ios .ion-page.show-page ~ .nav-decor // dit zorgt ervoor dat de nav content die nog op zwart zat op wit gezet wordt zodat we de juiste kleurcombinatie hebben.
-{
-  background-color: white !important;
-}
-.grid {
-  padding: 5px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  background-color: #ebeeef;
-}
-// Register TEXT
-body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div
-{
-  color:white;
-}
-
-// Login Text
-body > ion-app > ng-component > ion-nav > page-register > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div > div > ion-title > div {
-  color: white;
-}
-
-.geheel {
-  background-color: white;
-  height: 70%;
-  border-radius: 10px;
-
-}
-.geheel2 {
-  background-color: white;
-  border-radius: 10px;
-  height: 70%;
-  margin-bottom: 15%;
-}
-
-body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
-  background: #ebeeef;
-  padding: 10px;
-}
-.form-title {
-  width: 100%;
-  position: relative;
-  z-index: 1;
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  padding: 70px 15px 74px 15px;
-  border-radius: 10px ;
-}
-
-body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid > ion-row > ion-col > div.loginFoto > div {
-  border-radius: 10px;
-
-}
-body > ion-app > ng-component > ion-nav > page-home > ion-content > div.scroll-content > ion-grid {
-  background: #ebeeef;
-  padding: 10px;
-}
-  .form-title::before {
-    content: "";
-    display: block;
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(58, 59, 59, 0.61);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-
-  .button1 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding: 0 20px;
-    min-width: 160px;
-    height: 50px;
-    background-color: #57b846;
-    border-radius: 25px;
-    font-size: 16px;
-    color: #fff;
-    line-height: 1.2;
-    -webkit-transition: all 0.4s;
-    transition: all 0.4s;
-    margin-left: 15px;
-    margin-top: 30px;
-  }
-
-.button3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding: 0 20px;
-  min-width: 160px;
-  height: 50px;
-  background-color: #57b846;
-  border-radius: 25px;
-  font-size: 16px;
-  color: #fff;
-  line-height: 1.2;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-  margin-left: 20px;
-  margin-top: 30px;
-  width: 50%;
-}
-
-.txt3{
-  font-family: Poppins-Regular;
-  font-size: 13px;
-  line-height: 1.4;
-  color: #999999;
-  padding-left: 15px;
-}
-
-  // App Material Design Variables
-  // --------------------------------------------------
-  // Material Design only Sass variables can go here
-
-  // App Windows Variables
-  // --------------------------------------------------
-  // Windows only Sass variables can go here
-
-  // App Theme
-  // --------------------------------------------------
-  // Ionic apps can have different themes applied, which can
-  // then be future customized. This import comes last
-  // so that the above variables are used and Ionic's
-  // default are overridden.
-
-  @import "ionic.theme.default";
-
-  // Ionicons
-  // --------------------------------------------------
-  // The premium icon font for Ionic. For more info, please see:
-  // http://ionicframework.com/docs/ionicons/
-
-  @import "ionic.ionicons";
-
-  // Fonts
-  // --------------------------------------------------
-
-  @import "roboto";
-  @import "noto-sans";
-
-
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+@import "ionic.theme.default";
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+@import "ionic.ionicons";
+// Fonts
+// --------------------------------------------------
+@import "roboto";
+@import "noto-sans";

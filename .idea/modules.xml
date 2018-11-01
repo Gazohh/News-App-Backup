@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/Desktop/k/.idea/k.iml" filepath="$USER_HOME$/Desktop/k/.idea/k.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/k/.idea/k.iml" filepath="$USER_HOME$/Desktop/k/.idea/k.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/login.iml" filepath="$PROJECT_DIR$/.idea/login.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/src/.idea/src.iml" filepath="$USER_HOME$/Desktop/src/.idea/src.iml" />
       <module fileurl="file://$PROJECT_DIR$/../start/.idea/start.iml" filepath="$PROJECT_DIR$/../start/.idea/start.iml" />
     </modules>
   </component>
